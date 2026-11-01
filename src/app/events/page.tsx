@@ -27,21 +27,59 @@ interface Event {
   category: string;
 }
 
+const sampleEvents: Event[] = [
+  {
+    _id: "ev-1",
+    title: "Annual Campus Literary Festival",
+    description: "Join bestselling authors, student writers, and book critics for an inspiring day of panel talks, workshops, and book signings.",
+    date: "November 15, 2026",
+    time: "10:00 AM - 4:00 PM",
+    location: "Main Auditorium, Campus Center",
+    imageUrl: "https://images.unsplash.com/photo-1540224485413-4c7939106f3a?auto=format&fit=crop&q=80&w=800",
+    capacity: 250,
+    category: "Festival",
+  },
+  {
+    _id: "ev-2",
+    title: "Deep Work Reading & Focus Circle",
+    description: "A collaborative 2-hour reading sprint followed by structured discussion on building uninterrupted productivity habits.",
+    date: "November 22, 2026",
+    time: "3:00 PM - 5:30 PM",
+    location: "Social Shelf Library Hub (Room 304)",
+    imageUrl: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&q=80&w=800",
+    capacity: 40,
+    category: "Book Club",
+  },
+  {
+    _id: "ev-3",
+    title: "Creative Storytelling & Micro-Fiction Workshop",
+    description: "Learn narrative arc building, dialogue pacing, and evocative scene setting from published novelists.",
+    date: "December 5, 2026",
+    time: "2:00 PM - 4:00 PM",
+    location: "Creative Arts Studio B",
+    imageUrl: "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800",
+    capacity: 35,
+    category: "Workshop",
+  },
+];
+
 export default function EventsPage() {
-  const [events, setEvents] = useState<Event[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [events, setEvents] = useState<Event[]>(sampleEvents);
+  const [loading, setLoading] = useState(false);
   const [registering, setRegistering] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchEvents = async () => {
       try {
         const response = await fetch("/api/events");
-        const data = await response.json();
-        setEvents(data);
+        if (response.ok) {
+          const data = await response.json();
+          if (Array.isArray(data) && data.length > 0) {
+            setEvents(data);
+          }
+        }
       } catch (error) {
-        console.error("Error fetching events:", error);
-      } finally {
-        setLoading(false);
+        // Fallback to sampleEvents
       }
     };
 

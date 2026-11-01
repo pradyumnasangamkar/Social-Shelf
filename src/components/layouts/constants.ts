@@ -1,29 +1,19 @@
 export const navigationLinks = [
-  { href: "/about", title: "About" },
+  { href: "/rent-books", title: "Rent Books" },
+  { href: "/donation", title: "Donate" },
   { href: "/events", title: "Events" },
   { href: "/gallery", title: "Gallery" },
+  { href: "/about", title: "About" },
   { href: "/contact", title: "Contact" },
 ];
 
 export const siteMetadata = {
   title: "Social Shelf",
-  author: "Omkar Pandhekar",
-  headerTitle: "omkarpandhekar",
-  description: "Software Developer",
+  author: "Social Shelf Team",
+  headerTitle: "Social Shelf",
+  description: "Community Library & Book Exchange Platform",
   language: "en-us",
-  // theme: 'dark', // system, dark or light
-  // siteUrl: 'https://dalelarroder.com',
-  // siteRepo: 'https://github.com/dlarroder/dalelarroder-blog',
-  // siteLogo: '/static/images/logo.png',
-  // image: '/static/images/avatar.webp',
-  // socialBanner: '/static/images/twitter-card.png',
-  email: "pandhekar.omkar@gmail.com",
-  github: "https://github.com/Omkar-pandhekar",
-  twitter: "https://x.com/dalelarroder",
-  facebook: "https://facebook.com/dlarroder",
-  linkedin: "https://www.linkedin.com/in/omkar-pandhekar/",
-  spotify: "https://open.spotify.com/user/12162121994?si=e685b3546f414967",
-  leetcode: "https://leetcode.com/u/Omkar_pandhekar/",
-  steam: "https://steamcommunity.com/id/dlarroder/",
+  email: "support@socialshelf.org",
+  github: "https://github.com/pradyumnasangamkar/Social-Shelf",
   locale: "en-US",
 };
